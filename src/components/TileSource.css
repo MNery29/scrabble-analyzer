@@ -1,0 +1,64 @@
+
+.tile-source {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    margin-top: auto;
+
+}
+
+.tile-row {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+.tile {
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+.tile-letter {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+}
+
+.tile-points {
+    font-size: 12px;
+    color: #555;
+}
+
+.tile-pool {
+    width: 40px;
+    height: 40px;
+    margin: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    background-image: url('images/wooden-plank-texture.jpg'); /* Add texture image */
+    background-size: cover; /* Ensure the texture covers the entire tile */
+    background-repeat: no-repeat; /* Prevent the texture from repeating */
+    background-position: center; 
+}

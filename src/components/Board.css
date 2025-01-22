@@ -1,0 +1,111 @@
+.board {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15, 1fr);
+    width: 730px;
+    height: 730px;
+    margin: auto;
+    margin-bottom: 2%;
+}
+
+
+.tile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    font-size: 12px;
+}
+
+.tile.normal {
+    background-color: #f0f0f0;
+}
+
+.tile.center {
+    background-color: #ff9999; /* Light red */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.tile.center::before {
+    content: '★'; 
+    font-size: 24px; 
+    color: rgb(0, 0, 0); /* Black */
+}
+
+.tile.double-word {
+    background-color: #ff9999; /* Light red */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tile.triple-word {
+    background-color: #ff6666; /* Red */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tile.double-letter {
+    background-color: #7ce8fe; /* Light blue */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tile.triple-letter {
+    background-color: #4db1fe; /* Blue */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 72px;
+    text-align: center;
+    font-family: Caviar Dreams, sans-serif;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-align: center;
+    font-family: Caviar Dreams, sans-serif;
+}
+
+.tile-bar {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+}
+
+.tile-bar .tile {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    font-size: 24px;
+    background-color: #fff;
+}
+
+.board-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
