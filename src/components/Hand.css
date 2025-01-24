@@ -1,0 +1,67 @@
+.hand-wrapper {
+  display: flex;
+  align-items: center; /* Vertically align the hand bar and button */
+  gap: 10px; /* Add space between the hand bar and the button */
+}
+
+.hand-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px; /* Add padding */
+  background: linear-gradient(135deg, #8b4513, #d2691e); /* Add gradient */
+  border-radius: 10px; /* Add rounded corners */
+  border: 2px solid #8c5c3e; /* Add border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+  margin-bottom: 10px;
+  width: 378px;
+  height: 45px;
+}
+
+button {
+  padding: 10px 20px; /* Add padding */
+  font-size: 16px; /* Increase font size */
+  font-weight: bold; /* Add bold font weight */
+  color: #fff; /* White text color */
+  background: linear-gradient(135deg, #8b4513, #d2691e); /* Add gradient */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer; /* Add pointer cursor */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+}
+
+.hand-tile {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #8c5c3e; /* Darker wood for edges */
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Arial", sans-serif;
+  font-size: 18px;
+  color: #000;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  background-image: url("images/wooden-plank-texture.jpg"); /* Add wooden texture */
+  background-size: cover; /* Ensure the texture covers the entire tile */
+  background-repeat: no-repeat; /* Prevent the texture from repeating */
+  background-position: center;
+}
+
+.hand-tile:active {
+  cursor: grabbing;
+  background-color: #e0e0e0;
+  opacity: 0.7;
+}
+
+.tile .letter {
+  font-size: 24px;
+}
+
+.tile .points {
+  font-size: 12px;
+  align-self: flex-end;
+}

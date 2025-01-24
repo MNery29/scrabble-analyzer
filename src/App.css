@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  margin-bottom: 10px;
+  font-size: 72px;
+  text-align: center;
+  font-family: Caviar Dreams, sans-serif;
+}
+
+h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  text-align: center;
+  font-family: Caviar Dreams, sans-serif;
+}
+h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-align: center;
+  font-family: Caviar Dreams, sans-serif;
+}
