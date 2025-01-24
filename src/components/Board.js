@@ -1,6 +1,6 @@
 import React from "react";
-import { Droppable, Draggable } from "react-beautiful-dnd";
 import "./Board.css";
+import { useDroppable } from "@dnd-kit/core";
 
 const specialTiles = {
   doubleWord: [
@@ -86,62 +86,53 @@ const getTileClass = (row, col) => {
   return "normal";
 };
 
-const Board = ({ boardState }) => {
-  const grid = Array.from({ length: 15 }, (_, row) =>
-    Array.from({ length: 15 }, (_, col) => ({ row, col }))
+const Board = ({ boardState, onTileDrop }) => {
+  const rows = Array.from({ length: 15 }, (_, rowIndex) =>
+    Array.from({ length: 15 }, (_, colIndex) => ({ rowIndex, colIndex }))
   );
 
+  const DroppableTile = ({ rowIndex, colIndex }) => {
+    const { isOver, setNodeRef } = useDroppable({
+      id: `board-${rowIndex}-${colIndex}`,
+    });
+  
+    // Get the tile class based on special tile logic
+    const tileClass = getTileClass(rowIndex, colIndex);
+  
+    return (
+      <div
+        ref={setNodeRef}
+        className={`tile ${tileClass} ${isOver ? "drag-over" : ""}`}
+        onDrop={() => onTileDrop(rowIndex, colIndex)}
+      >
+        {/* Tile placeholder for special tiles */}
+        <div className="tile-placeholder">
+          {(tileClass === "triple-word" && "TW") ||
+            (tileClass === "double-word" && "DW") ||
+            (tileClass === "triple-letter" && "TL") ||
+            (tileClass === "double-letter" && "DL")}
+        </div>
+  
+        {/* Render the tile letter if the spot is occupied */}
+        {boardState[rowIndex][colIndex] && (
+          <div className="tile-letter">{boardState[rowIndex][colIndex]}</div>
+        )}
+      </div>
+    );
+  };
   return (
     <div className="board">
-      {grid.map((row, rowIndex) =>
-        row.map(({ row, col }) => {
-          const tile = boardState[row][col]; // Get tile from boardState
-          const tileClass = getTileClass(row, col);
-          const droppableId = `board-${row}-${col}`;
-
-          return (
-            <Droppable key={droppableId} droppableId={droppableId}>
-              {(provided, snapshot) => (
-                <div
-                ref={provided.innerRef}
-                {...provided.droppableProps}
-                className={`tile ${tileClass} ${
-                  snapshot.isDraggingOver ? "drag-over" : ""
-                }`}
-              >
-                {tile ? (
-                  // If a tile exists, make it draggable
-                  <Draggable draggableId={`tile-${row}-${col}`} index={0}>
-                    {(provided) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        className="draggable-tile"
-                      >
-                        {tile}
-                      </div>
-                    )}
-                  </Draggable>
-                ) : (
-                  // If no tile, show special tile indicators
-                  (tileClass === "triple-word" && "TW") ||
-                  (tileClass === "double-word" && "DW") ||
-                  (tileClass === "triple-letter" && "TL") ||
-                  (tileClass === "double-letter" && "DL") ||
-                  ""
-                )}
-                {provided.placeholder}
-              </div>
-              )}
-            </Droppable>
-          );
-        })
+      {rows.map((row, rowIndex) =>
+        row.map(({ rowIndex, colIndex }) => (
+          <DroppableTile
+            key={`tile-${rowIndex}-${colIndex}`}
+            rowIndex={rowIndex}
+            colIndex={colIndex}
+          />
+        ))
       )}
     </div>
   );
 };
 
 export default Board;
-
-
