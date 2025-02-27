@@ -1,3 +1,9 @@
+# Unscrabbled: A Scrabble Analyzer
+
+This is a personal project I started in December of 2024 to work on developing web design and python scripting skills. The project is
+Unscrabbled, a Scrabble analysis board designed to allow users to see the best words for any scrabble game.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
